@@ -3,9 +3,7 @@
 # include <iostream>
 
 // Constructor
-Class1::Class1(int a, int b, char* c) {
-    this->a = a;
-    this->b = b;
+Class1::Class1(int a, int b, char* c) : a(a), b(b) {
     this->c = c;
     std::cout << "Constructor called" << std::endl;
 };
@@ -20,8 +18,18 @@ Class1::Class1(const Class1& other) {
     std::cout << "Copy Constructor called" << std::endl;
 };
 
+// Move Constructor
+Class1::Class1(Class1&& other) {
+    this->a = other.a;
+    this->b = other.b;
+    this->c = other.c;
+    other.c = NULL;
+    std::cout << "Move Constructor called" << std::endl;
+};
+
 // Destructor
 Class1::~Class1() {
-    delete [] this->c;
+    if(c)
+        delete[] c;
     std::cout << "Destructor called" << std::endl;
 };

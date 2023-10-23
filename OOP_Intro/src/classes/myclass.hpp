@@ -8,5 +8,6 @@ class Class1 {
     public:
         Class1(int, int, char*);
         Class1(const Class1&);
+        Class1(Class1&&);
         ~Class1();
 };
