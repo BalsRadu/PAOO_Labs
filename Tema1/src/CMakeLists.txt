@@ -1,3 +1,5 @@
+# The contents of this file were taken from the OOP_Intro directory and sligly modified
+# to work with the new directory structure
 cmake_minimum_required(VERSION 3.10)
 
 project(MyStringArray VERSION 1.0)
