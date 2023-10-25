@@ -11,5 +11,6 @@ int main() {
     {
         Class1 y = c1;
     }
-  return 0;
+    Class1 c2 = std::move(Class1(2, 2.0, s));
+    return 0;
 }
