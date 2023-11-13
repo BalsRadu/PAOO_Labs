@@ -1,1 +1,3 @@
 add_library(dynamic_string_array dynamic_string_array.cpp)
+add_library(lower_case_string_array lower_case_string_array.cpp)
+add_library(upper_case_string_array upper_case_string_array.cpp)

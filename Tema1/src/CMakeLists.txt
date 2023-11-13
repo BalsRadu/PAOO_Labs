@@ -12,8 +12,13 @@ add_subdirectory(dynamic_string_array)
 add_executable(MyStringArray main.cpp)
 
 target_link_libraries(MyStringArray PUBLIC dynamic_string_array)
+target_link_libraries(MyStringArray PUBLIC upper_case_string_array)
+target_link_libraries(MyStringArray PUBLIC lower_case_string_array)
+
 
 target_include_directories(MyStringArray PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            "${PROJECT_SOURCE_DIR}/dynamic_string_array"
+                           "${PROJECT_SOURCE_DIR}/upper_case_string_array"
+                           "${PROJECT_SOURCE_DIR}/lower_case_string_array"
                            )

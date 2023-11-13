@@ -68,3 +68,42 @@ void DynamicStringArray::resize() {
     delete[] array;
     array = newArray;
 }
+
+// Copy assignment operator
+DynamicStringArray& DynamicStringArray::operator=(const DynamicStringArray& other) {
+    if (this != &other) {
+        for (int i = 0; i < size; i++) {
+            delete[] array[i];
+        }
+        delete[] array;
+
+        size = other.size;
+        capacity = other.capacity;
+        array = new char*[capacity];
+        for (int i = 0; i < size; i++) {
+            array[i] = new char[strlen(other.array[i]) + 1];
+            strcpy(array[i], other.array[i]);
+        }
+    }
+    return *this;
+}
+
+// Move assignment operator
+DynamicStringArray& DynamicStringArray::operator=(DynamicStringArray&& other) {
+    if (this != &other) {
+        for (int i = 0; i < size; i++) {
+            delete[] array[i];
+        }
+        delete[] array;
+
+        size = other.size;
+        capacity = other.capacity;
+        array = other.array;
+
+        other.size = 0;
+        other.capacity = 0;
+        other.array = nullptr;
+    }
+    return *this;
+}
+
