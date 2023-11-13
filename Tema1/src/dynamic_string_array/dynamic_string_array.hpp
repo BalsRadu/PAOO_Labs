@@ -25,10 +25,16 @@ public:
     // Destructor: Frees up dynamically allocated memory for the array and its strings
     ~DynamicStringArray();
 
+    // Copy assignment operator
+    DynamicStringArray& operator=(const DynamicStringArray&);
+
+    // Move assignment operator
+    DynamicStringArray& operator=(DynamicStringArray&&);
+
     // Adds a new string to the array
     // If the array is full, it resizes first
-    void add(const char* str);
+    virtual void add(const char* str);
 
     // Prints all the strings stored in the array
-    void print() const;
+    virtual void print() const;
 };
